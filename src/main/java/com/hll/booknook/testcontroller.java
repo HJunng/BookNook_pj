@@ -9,6 +9,6 @@ public class testcontroller {
     @GetMapping("/")
     @ResponseBody
     public String hello() {
-        return "Hello World";
+        return "Hello world";
     }
 }
