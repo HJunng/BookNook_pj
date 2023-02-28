@@ -23,6 +23,6 @@ public class KakaoController {
             System.out.println("###userInfo#### : " + userInfo.get("email"));
             System.out.println("###nickname#### : " + userInfo.get("nickname"));
         }
-        return "kakaologin";
+        return "redirect:/";
     }
 }
