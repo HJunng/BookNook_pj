@@ -1,5 +1,6 @@
-package com.hll.booknook;
+package com.hll.booknook.controller;
 
+import com.hll.booknook.KakaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
