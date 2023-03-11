@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/book_detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+            <nav id="menubar">
+                <ul id="topMenu">
+                    <li><a href="#">서재</a></li>
+                    <li><a href="#">기록</a>
+                        <ul>
+                            <li><a href="#">기록하기</a></li>
+                            <li><a href="#">기록 보기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">통계</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <div id="searchbar">
+                <form action="searchList.html" method="get">
+                    <input type="search" name="bookSearch" placeholder="도서를 입력하세요">
+                    <input type="image" src="../images/search.png">
+                </form>
+            </div>
+
+            <div id="contents">
+                <div id="bookDetail">
+                    <div id="thumbnail">
+                        <div><span>이미지 없음</span></div>
+                    </div>
+                    <div>
+                        <div id="bookMeta">
+                            <div id="title">
+                                <label>책 제목</label>
+                                <p>우리가 빛의 속도로 갈 수 없다면</p>
+                            </div>
+                            <div id="authors">
+                                <label>지은이</label>
+                                <p>김초엽</p>
+                            </div>
+                            <div id="publisher">
+                                <label>출판사</label>
+                                <p>허블</p>
+                            </div>
+                            <div id="summary">
+                                <label>책 소개</label>
+                                <p>책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .
+                                    책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .
+                                </p>
+                            </div>
+                        </div>
+                        <div id="cart">
+                            <label for="cartList">읽은 상태</label>
+                            <ul id="cartList">
+                                <li>
+                                    <input type="radio" id="Read"  name="cart" value="read">
+                                    <label for="Read">✅ 읽은 책</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="Reading" name="cart" value="reading">
+                                    <label for="Reading">📖 읽고 있는 책</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="WanttoRead" name="cart" value="wanttoread">
+                                    <label for="WanttoRead">💗 읽고 싶은 책</label>
+                                </li>
+                            </ul>
+                            <button>담기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="popup_layer">
+        <div class="popup" id="popup_read">
+            <div>
+                <strong>✅ 읽은 책</strong>
+            </div>
+            <div class="popup_contents">
+                <div id="period_read">
+                    <label for="period_read">독서 기간</label>
+                    <div id="start_date">
+                        <label for="">📅 시작일</label>
+                        <input type="date">
+                    </div>
+                    <div id="end_date">
+                        <label for="">📅 종료일</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <div id="star">
+                    <label for="star">평점</label>
+                    <ul>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="btn_read">
+                <button>저장</button>
+                <button>닫기</button>
+            </div>
+        </div>
+
+        
+        <div class="popup" id="popup_reading">
+            <div>
+                <strong>📖 읽고 있는 책</strong>
+            </div>
+            <div>
+                <div id="period_reading">
+                    <label for="period_reading">독서기간</label>
+                    <div>
+                        <label for="">📅 시작일</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <div id="amount_reading">
+                    <div>
+                        <label for="amount_reading">독서량</label>
+                        <div>
+                            <button>...</button>
+                            <button>%</button>
+                            <label>...<input type="radio"></label>
+                            <label>%<input type="radio"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="">읽은 페이지</label>
+                        <input type="number"><p></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button>저장</button>
+                <button>닫기</button>
+            </div>
+        </div>
+
+        <div class="popup" id="popup_wanttoread">
+            <div>
+                <strong>💗 읽고 싶은 책</strong>
+            </div>
+            <div>
+                <label for="">기대평</label>
+                <textarea name="" id="expectation" cols="30" rows="10" placeholder="기대평을 입력하세요."></textarea>
+            </div>
+            <div>
+                <button>저장</button>
+                <button>닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="../js/book_detail.js"></script>
+</body>
+</html>
