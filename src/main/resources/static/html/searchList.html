@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/searchList.css">
+    <title>BookNook - </title>
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+            <nav id="menubar">
+                <ul id="topMenu">
+                    <li><a href="#">서재</a></li>
+                    <li><a href="#">기록</a>
+                        <ul>
+                            <li><a href="#">기록하기</a></li>
+                            <li><a href="#">기록 보기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">통계</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <div id="searchbar">
+                <form action="searchList.html" method="get">
+                    <input type="search" name="bookSearch" placeholder="도서를 입력하세요">
+                    <input type="image" src="../images/search.png">
+                </form>
+            </div>
+            
+            <div id="tagArea">
+                <div><p>전체 <span id="total_result"></span>건</p></div>
+                <!--
+                <div class="book">
+                    /*
+                        <div><img src='" + msg.documents[i].thumbnail + "'/></div>
+                    */
+                    <div class="bookContents">
+                        /*
+                            <p><strong><a href='book_detail.html' id='title'>" + msg.documents[i].title + "</a></strong></p>
+                            <p class='left'>" + msg.documents[i].authors + "</p>
+                            <p class='left'>&middot</p>
+                            <p class='left'>" + msg.documents[i].publisher + "</p>
+                            <p>" + msg.documents[i].contents + "</p>
+                        */
+                    </div>
+                </div>
+                -->
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="../js/searchList.js"></script>
+</body>
+</html>
