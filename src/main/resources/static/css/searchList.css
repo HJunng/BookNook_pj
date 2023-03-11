@@ -2,13 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 a {
     text-decoration: none;
 }
@@ -21,7 +19,9 @@ ul {
     margin: 0 auto;
     width: 1280px;
 }
-
+html {
+    overflow: scroll;
+}
 /* 헤더 영역 */
 #header {
     width: 100%;
@@ -104,8 +104,7 @@ nav {
 #main {
     width: 100%;
     padding-top: 30px;
-    background-color: white;
-
+    background-color: #ffffff;
 }
 
 /* 검색창 영역 */
@@ -148,131 +147,76 @@ nav {
     top: 5px;
 }
 
-/* 독서왕 영역*/
-#ReadingKing {
-    width: 900px;
+/* 검색결과 영역 */
+#tagArea {
+    width: 1200px;
     margin: 0 auto;
-    padding-top: 50px;
 }
-#ReadingKing > h3 {
-    padding-bottom: 10px;
-    text-align: center;
-    font-family: 'Nanum Myeongjo', serif;
-    font-size: 25px;
+#tagArea > div:first-child {
+    width: 900px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    border-bottom: 1px solid #a5a5a5;
+}
+#tagArea > div:first-child > p {
+    font-size: 15px;
     font-weight: 900;
+    color: black;
 }
-#ReadingKing > p {
-    text-align: center;
-    padding-bottom: 30px;
+#tagArea > div:first-child > p > span {
+    font-size: 15px;
+    font-weight: 900;
+    color: rgb(255, 0, 0);
+}
+#tagArea > .book {
+    width: 900px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 30px 30px;
+    border-top: 1px solid #ccc;
+    background-color: white;
+}
+#tagArea img {
+    width: 110px;
+    border: 1px solid #ccc;
+    float: left;
+}
+#tagArea .book .bookContents {
+    margin-left: 20px;
+    width: 500px;
+    height: 160px;
+    float: left;
+}
+
+#tagArea strong {
+    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+#tagArea strong > a {
+    color: black;
+}
+#tagArea strong > a:hover {
+    text-decoration: underline;
+}
+#tagArea p {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 12px;
-    color: #4d4d4d;
+    color: rgb(44, 44, 44);
+    padding: 3px 0;
 }
-
-#ranking_whole {
+#tagArea p:last-child {
     width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
 }
-#top3 {
-    width: 700px;
-    height: 210px;
-    margin: 0 auto;
-}
-.top3 {
+#tagArea .left {
     float: left;
-    width: 200px;
-    height: 180px;
-    margin: 30px 10px 0px 10px;
-    padding: 15px 0px;
-    border: 1px solid #9F9F9F;
-    border-radius: 15px;
-    background-color: white;
-}
-#rank_1 {
-    margin: 0px 30px;
-}
-
-.top3 > img {
-    width: 70px;
-    height: 70px;
-    display: block;
-    margin: 0 auto 10px auto;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-}
-.top3 > p {
-    text-align: center;
-    font-size: 18px;
-    font-weight: 900;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-.top3 > .NumberofBook {
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    display: block;
-    margin: 10px auto 10px auto;
-    padding: 0px 10px;
-    background-color: beige;
-    border-radius: 5px;
-}
-.top3 > .NumberofBook > span {
-    float: left;
-}
-.top3 > .NumberofBook > p {
-    float: right;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-#top4to10 {
-    width: 720px;
-    height: auto;
-    margin: 30px auto;
-    background-color: white;
-}
-#top4to10 > ol {
-    list-style: none;
-}
-#top4to10 li {
-    width: 700px;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 10px;
-    padding: 0 15px;
-    border-bottom: 1px solid #ccc;
-}
-#top4to10 li div {
-    float: left;
-}
-#top4to10 li p {
-    font-size: 15px;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-#top4to10 .idx {
-    width: 30px;
-}
-#top4to10 .idx > p {
-    text-align: center;
-}
-#top4to10 .name {
-    width: 100px;
-}
-#top4to10 .numofbook {
-    width: 80px;
-    float: right;
-}
-#top4to10 .numofbook > p {
-    text-align: right;
-}
-#top4to10 .userimg {
-    width: 70px;
-    height: 50px;
-}
-#top4to10 .userimg > img{
-    width: 30px;
-    height: 30px;
-    margin: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
+    margin-right: 5px;
+    padding-right: 5px;
 }
