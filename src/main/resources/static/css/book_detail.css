@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1280px;
+}
+html {
+    overflow: scroll;
+}
+/* 헤더 영역 */
+#header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1.5px solid #0b5c10;
+}
+
+/* 로고 영역 */
+#logo {
+    float: left;
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 30px;
+}
+#logo h1 {
+    font-family: 'Righteous', cursive;
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+}
+
+/* 네비게이션 영역 */
+nav {
+    width: 330px;
+    height: 80px;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+#topMenu {
+    height: 80px;
+    line-height: 80px;
+    
+}
+#topMenu > li {
+    float: left; /* 가로로 설정 */
+    position: relative;
+}
+#topMenu > li > a {
+    display: block;
+    font-weight: 500;
+    padding: 0px 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: rgb(44, 44, 44);
+}
+#topMenu > li > a:hover {
+    color: rgb(158, 32, 32);
+    font-weight: 900;
+}
+#topMenu > li > ul {
+    display: none;
+    position: absolute;
+    width: 250px;
+    background-color: white;
+    border: 1px solid black;
+    float: left;
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+}
+#topMenu > li > ul > li {
+    line-height: 100%;
+    padding: 10px 10px 10px 30px;
+}
+#topMenu > li > ul > li > a {
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: rgb(131, 131, 131);
+    padding: 0px 5px;
+}
+#topMenu > li:hover > ul {
+    display: block;
+    z-index: 10;
+}
+#topMenu > li > ul > li > a:hover {
+    color: rgb(44, 44, 44);
+    font-weight: 900;
+}
+
+/* 메인 콘텐츠 영역 */
+#main {
+    width: 100%;
+    padding-top: 10px;
+    background-color: #ffffff;
+}
+
+/* 검색창 영역 */
+#searchbar {
+    background-color: white;
+    width: 500px;
+    height: 35px;
+    line-height: 35px;
+    padding: 5px 20px;
+    margin: 10px auto 25px auto;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    
+}
+#searchbar > form {
+    float: left;
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+#searchbar input[type=search] {
+    width: 400px;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    left: 0;
+    border: none;
+    background-color: transparent;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+}
+#searchbar input[type=search]:focus {
+    outline: none;
+}
+#searchbar input[type=image] {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+/* 콘텐츠 영역(책 세부사항) */
+#contents {
+    width: 1280px;
+    height: 500px;
+    margin: 0 auto;
+}
+#bookDetail {
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+#thumbnail {
+    float: left;
+    margin-right: 20px;
+}
+
+
+/* 테스트 구간입니다. */
+#thumbnail > div {
+    width: 200px;
+    height: 250px;
+    background-color: #ccc;
+}
+#bookDetail #bookMeta {
+    margin-bottom: 10px;
+}
+#bookDetail #bookMeta > div {
+    margin-bottom: 10px;
+}
+#bookDetail #bookMeta  p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 17px;
+    color: black;
+}
+#bookDetail #bookMeta > #title > p {
+    font-size: 20px;
+    font-weight: 900;
+}
+/* 테스트 구간입니다. */
+
+
+#bookDetail > div:not(#thumbnail) {
+    width: 700px;
+    height: auto;
+    padding: 10px 10px;
+    float: left;
+}
+#bookDetail #bookMeta {
+}
+#bookDetail #bookMeta label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    color: #919191;
+}
+#bookDetail #cart {
+    height: 100px;
+    position: relative;
+}
+#bookDetail #cart > label {
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #919191;
+}
+#bookDetail #cart > ul {
+    height: 80px;
+    padding: 20px 0;
+}
+#bookDetail #cart > ul > li {
+    float: left;
+}
+#bookDetail #cart > ul > li > input[type=radio] {
+    display: none;
+}
+#bookDetail #cart > ul > li > label {
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    padding: 10px 20px;
+    width: auto;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid rgb(066, 133, 244);
+    color: rgb(066, 133, 244);
+    border-radius: 50px;
+}
+#bookDetail #cart > ul > li > input[type=radio]:hover + label{
+    background-color: rgb(066, 133, 244);
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    cursor: pointer;
+}
+#bookDetail #cart > ul > li > input[type=radio]:checked + label{
+    background-color: rgb(066, 133, 244);
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+}
+#bookDetail #cart button {
+    clear: left;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 900;
+    outline: 0;
+    border: 1px solid rgb(066, 133, 244);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(066, 133, 244);
+}
+#bookDetail #cart button:hover {
+    cursor: pointer;
+}
+
+
+/* 팝업창 영역 */
+.popup_layer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.4);
+    
+}
+
+#popup_read {
+    width: 500px;
+    height: 400px;
+    margin: 70px auto;
+    padding: 30px 0;
+    background-color: white;  
+    position: relative;  
+}
+
+#popup_read > div {
+    margin: 0 auto;
+    width: 350px;
+
+}
+
+#popup_read > div > strong {
+    font-size: 23px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#popup_read > .popup_contents > div {
+    margin-top: 25px;
+}
+#popup_read #period_read > div {
+    border: 1px solid black;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 5px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+#popup_read #period_read > div > input{
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#popup_read #period_read > div > input:focus {
+    border: none;
+    outline: none;
+}
+#popup_read > .popup_contents label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: #666666;
+}
+.popup_contents > #star {
+    display: flex;
+    justify-content: space-between;
+}
+.popup_contents > #star > ul{
+    list-style: none;
+}
+.popup_contents > #star > ul > li {
+    float: left;
+    margin-right: 5px;
+}
+.popup_contents > #star > ul > li > button {
+    border: none;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+#popup_read > #btn_read {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+#popup_read > #btn_read > button {
+    float: right;
+    width: 70px;
+    height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(134, 205, 131);
+}
+#popup_read > #btn_read > button:last-child {
+    background-color: rgb(255, 139, 139);
+}
