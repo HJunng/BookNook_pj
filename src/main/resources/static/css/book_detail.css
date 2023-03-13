@@ -10,9 +10,12 @@
 a {
     text-decoration: none;
 }
-
 ul {
     list-style: none;
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 #container {
@@ -195,8 +198,7 @@ nav {
     padding: 10px 10px;
     float: left;
 }
-#bookDetail #bookMeta {
-}
+
 #bookDetail #bookMeta label {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 12px;
@@ -266,8 +268,8 @@ nav {
 }
 
 
-/* 팝업창 영역 */
-.popup_layer{
+/* 팝업레이어 영역 */
+#popup_layer{
     display: none;
     position: fixed;
     top: 0;
@@ -279,50 +281,78 @@ nav {
     
 }
 
-#popup_read {
+/* 팝업창 영역(공통) */
+.popup {
+    display: none;
     width: 500px;
-    height: 400px;
     margin: 70px auto;
     padding: 30px 0;
     background-color: white;  
-    position: relative;  
+    position: relative; 
 }
-
-#popup_read > div {
+.popup > form > div {
     margin: 0 auto;
     width: 350px;
-
 }
-
-#popup_read > div > strong {
+.popup > form > div > strong {
     font-size: 23px;
     font-family: 'Noto Sans KR', sans-serif;
 }
-#popup_read > .popup_contents > div {
+.popup .popup_contents {
     margin-top: 25px;
 }
-#popup_read #period_read > div {
+.popup .popup_contents > div {
+    margin-bottom: 25px;
+}
+.popup .popup_box {
     border: 1px solid black;
+    margin-top: 5px;
     width: 100%;
     height: 45px;
     line-height: 45px;
-    margin-top: 5px;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
 }
-#popup_read #period_read > div > input{
+.popup .period > div > input {
     border: none;
     font-family: 'Noto Sans KR', sans-serif;
 }
-#popup_read #period_read > div > input:focus {
+.popup .period > div > input:focus {
     border: none;
     outline: none;
 }
-#popup_read > .popup_contents label {
+.popup .popup_contents label {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 13px;
     color: #666666;
+}
+.popup .btn_popup {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+.popup .btn_popup > button {
+    float: right;
+    width: 70px;
+    height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(134, 205, 131);
+}
+.popup .btn_popup > button:last-child {
+    background-color: rgb(255, 139, 139);
+}
+.popup .btn_popup > button:hover {
+    cursor: pointer;
+}
+
+/* 팝업창 영역(읽은 책) */
+#popup_read {
+    height: 400px;  
 }
 .popup_contents > #star {
     display: flex;
@@ -341,22 +371,82 @@ nav {
     background-color: transparent;
 }
 
-#popup_read > #btn_read {
-    position: absolute;
-    bottom: 20px;
-    right: 50px;
+
+/* 팝업창 영역(읽고 있는 책) */
+#popup_reading {
+    
+    height: 400px;
 }
-#popup_read > #btn_read > button {
-    float: right;
-    width: 70px;
-    height: 40px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 16px;
-    margin-left: 15px;
+#popup_reading #amount_reading > div{
+    display: flex;
+    justify-content: space-between;
+}
+#popup_reading #amount_reading input[type=number] {
     border: none;
-    border-radius: 30px;
-    background-color: rgb(134, 205, 131);
+    text-align: right;
 }
-#popup_read > #btn_read > button:last-child {
-    background-color: rgb(255, 139, 139);
+#popup_reading .popup_contents > #amount_reading input[type=number]:focus {
+    border: none;
+    outline: none;
+}
+#popup_reading .popup_contents span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: #666666;
+    padding-left: 5px;
+}
+#btn_amount_unit {
+    width: 62px;
+    height: 22px;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    position: relative;
+    background-color: white;
+}
+#btn_amount_unit > label {
+    width: 50%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #666666;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    float: left;
+    text-align: center;
+}
+#btn_amount_unit > label:first-child {
+    background-color: #666666;
+    color: white;
+}
+#btn_amount_unit > label:hover {
+    cursor: pointer;
+}
+#btn_amount_unit input[type=radio] {
+    display: none;
+}
+
+
+/* 팝업창 영역(읽고 싶은 책) */
+#popup_want {
+    
+    height: 380px;
+}
+#popup_want .popup_box {
+    height: 150px;
+    margin-top: 5px;
+    padding: 0;
+}
+#popup_want .popup_contents textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    resize: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: black;
+    font-size: 14px;
+}
+#popup_want .popup_contents textarea:focus {
+    outline: none;
 }
