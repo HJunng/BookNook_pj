@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Document</title>
 </head>
+<script>
+    const urlParams = new URL(location.href).searchParams;
+    const bookSearch = urlParams.get("bookSearch");
+
+    console.log(bookSearch);
+</script>
 <body>
     <div id="container">
         <header id="header">
@@ -77,7 +83,7 @@
                                     </li>
                                 </ul>
                                 <input type="button" id="cart_submit" value="담기">
-                            </form> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -88,9 +94,16 @@
 
     <div id="popup_layer">
         <div class="popup" id="popup_read">
-            <form action="">
+            <form action="/books/readed" method="post">
                 <div>
                     <strong>✅ 읽은 책</strong>
+                </div>
+                <div>
+                    <input id="isbn" name="isbn" value="">
+                    <p id="isbn2"></p>
+                    <script>
+                        document.getElementById("isbn2").innerHTML=bookSearch;
+                    </script>
                 </div>
                 <div class="popup_contents">
                     <div class="period" id="period_read">
@@ -124,7 +137,7 @@
 
         
         <div class="popup" id="popup_reading">
-            <form action="">
+            <form action="/books/reading" method="post">
                 <div>
                     <strong>📖 읽고 있는 책</strong>
                 </div>
