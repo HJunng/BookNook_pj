@@ -38,46 +38,46 @@
             <div id="contents">
                 <div id="bookDetail">
                     <div id="thumbnail">
-                        <div><span>이미지 없음</span></div>
+                        <div><img src="" alt="책 이미지" id="book_thumbnail"></div>
                     </div>
                     <div>
                         <div id="bookMeta">
                             <div id="title">
                                 <label>책 제목</label>
-                                <p>우리가 빛의 속도로 갈 수 없다면</p>
+                                <p id="book_title"></p>
                             </div>
                             <div id="authors">
                                 <label>지은이</label>
-                                <p>김초엽</p>
+                                <p id="book_authors"></p>
                             </div>
                             <div id="publisher">
                                 <label>출판사</label>
-                                <p>허블</p>
+                                <p id="book_publisher"></p>
                             </div>
                             <div id="summary">
                                 <label>책 소개</label>
-                                <p>책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .
-                                    책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .책 소개입니다 .
-                                </p>
+                                <p id="book_summary"></p>
                             </div>
                         </div>
                         <div id="cart">
-                            <label for="cartList">읽은 상태</label>
-                            <ul id="cartList">
-                                <li>
-                                    <input type="radio" id="Read"  name="cart" value="read">
-                                    <label for="Read">✅ 읽은 책</label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="Reading" name="cart" value="reading">
-                                    <label for="Reading">📖 읽고 있는 책</label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="WanttoRead" name="cart" value="wanttoread">
-                                    <label for="WanttoRead">💗 읽고 싶은 책</label>
-                                </li>
-                            </ul>
-                            <button type="submit" id="cart_submit">담기</button>
+                            <form action="">
+                                <label for="cartList">읽은 상태</label>
+                                <ul id="cartList">
+                                    <li>
+                                        <input type="radio" id="Read"  name="cart" value="read">
+                                        <label for="Read">✅ 읽은 책</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="Reading" name="cart" value="reading">
+                                        <label for="Reading">📖 읽고 있는 책</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="WanttoRead" name="cart" value="wanttoread">
+                                        <label for="WanttoRead">💗 읽고 싶은 책</label>
+                                    </li>
+                                </ul>
+                                <input type="button" id="cart_submit" value="담기">
+                            </form> 
                         </div>
                     </div>
                 </div>
@@ -96,11 +96,11 @@
                     <div class="period" id="period_read">
                         <label for="period_read">독서 기간</label>
                         <div class="popup_box">
-                            <label for="">📅 시작일</label>
+                            <label for="start_read">📅 시작일</label>
                             <input type="date" id="start_read" max="">
                         </div>
                         <div class="popup_box">
-                            <label for="">📅 종료일</label>
+                            <label for="end_read">📅 종료일</label>
                             <input type="date" id="end_read" max="" min="">
                         </div>
                     </div>
@@ -116,8 +116,8 @@
                     </div>
                 </div>
                 <div class="btn_popup" id="btn_read">
-                    <button>저장</button>
-                    <button id="close_read">닫기</button>
+                    <input type="submit" value="저장">
+                    <input type="button" id="close_read" value="닫기">
                 </div>
             </form>
         </div>
@@ -130,15 +130,15 @@
                 </div>
                 <div class="popup_contents">
                     <div class="period" id="period_reading">
-                        <label for="period_reading">독서기간</label>
+                        <label>독서기간</label>
                         <div class="popup_box">
-                            <label for="">📅 시작일</label>
+                            <label for="start_reading">📅 시작일</label>
                             <input type="date" id="start_reading">
                         </div>
                     </div>
                     <div id="amount_reading">
                         <div>
-                            <label for="amount_reading">독서량</label>
+                            <label>독서량</label>
                             <div id="btn_amount_unit">
                                 <label id="page">...<input type="radio" name="amount_unit" value="pages" onclick="selectUnit(event)" checked></label>
                                 <label id="per">%<input type="radio" name="amount_unit" value="per" onclick="selectUnit(event)"></label>
@@ -146,16 +146,16 @@
                             </div>
                         </div>
                         <div class="popup_box">
-                            <label for="">읽은 페이지</label>
+                            <label for="page_reading">읽은 페이지</label>
                             <div>
-                                <input type="number" value="0"><span id="span_page">쪽</span>
+                                <input type="number" value="0" id="page_reading"><span id="span_page">쪽</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="btn_popup">
-                    <button>저장</button>
-                    <button id="close_reading">닫기</button>
+                    <input type="submit" value="저장">
+                    <input type="button" id="close_reading" value="닫기">
                 </div>
             </form>
         </div>
@@ -166,14 +166,14 @@
                     <strong>💗 읽고 싶은 책</strong>
                 </div>
                 <div class="popup_contents">
-                    <label for="">기대평</label>
+                    <label for="expectation">기대평</label>
                     <div class="popup_box">
-                        <textarea name="" id="expectation" placeholder="기대평을 입력하세요."></textarea>
+                        <textarea name="expectation" id="expectation" placeholder="기대평을 입력하세요."></textarea>
                     </div>
                 </div>
                 <div class="btn_popup">
-                    <button>저장</button>
-                    <button id="close_want">닫기</button>
+                    <input type="submit" value="저장">
+                    <input type="button" id="close_want" value="닫기">
                 </div>
             </form>
         </div>
