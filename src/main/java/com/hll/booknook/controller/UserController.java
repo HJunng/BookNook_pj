@@ -44,14 +44,22 @@ public class UserController {
     }
     @RequestMapping("/login")
     public String home(@RequestParam(value = "code", required = false) String code) throws Exception{
-        User user = new User();
-        String access_Token = kakaoService.getAccessToken(code);
-        HashMap<String, Object> userInfo = kakaoService.getUserInfo(access_Token);
-        user.setEmail(String.valueOf(userInfo.get("email")));
-        user.setUsername(String.valueOf(userInfo.get("nickname")));
-        user.setSns(75); //카카오의 K:아스키넘버(75)
-        this.userRepository.save(user);
-        return "redirect:/";//로그인 성공시 접속될 주소 입력하기
+        if (code != null) {
+            User user = new User();
+            String access_Token = kakaoService.getAccessToken(code);
+            HashMap<String, Object> userInfo = kakaoService.getUserInfo(access_Token);
+            User u = this.userRepository.findBySnsAndEmail(75, String.valueOf(userInfo.get("email")));
+            if (u == null) {
+                user.setEmail(String.valueOf(userInfo.get("email")));
+                user.setUsername(String.valueOf(userInfo.get("nickname")));
+                user.setSns(75); //카카오의 K:아스키넘버(75)
+                this.userRepository.save(user);
+            } else {
+                System.out.println("이미 로그인 되어 있음");
+            }
+            return "redirect:/";//로그인 성공시 접속될 주소 입력하기
+        }
+        return "redirect:/";//로그인 실패시 접속될 주소 입력하기
     }
 
 }
