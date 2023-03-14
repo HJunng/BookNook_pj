@@ -1,54 +1,36 @@
+/* searchList.html에서 클릭한 책의 정보(isbn) 받기 */
 const urlParams = new URL(location.href).searchParams;
 const bookSearch = urlParams.get("bookSearch");
-
-let isbn;
-
-isbn = localStorage.getItem("isbn");
-isbn = isbn.split(" ")[1];
-
-console.log(isbn);
 
 $.ajax({
   method: "GET",
   url: "https://dapi.kakao.com/v3/search/book?target=title",
-  data: { query: isbn, sort: "accuracy", target: "isbn" },
+  data: { query: bookSearch, sort: "accuracy", target: "isbn" },
   headers: { Authorization: "KakaoAK a139cc1585a4fde2ef179e9e239f02a9" },
 }).done(function (msg) {
-  console.log(msg);
+  //console.log(msg);
 
-  /*
-        let tagArea = document.getElementById('tagArea');
-        let total_result = document.getElementById('total_result');
-        let title = document.getElementsByTagName('title');
+  /* book_detail.html에 책 정보 넣기 */
+  let book_thumbnail = document.getElementById("book_thumbnail");
+  let book_title = document.getElementById("book_title");
+  let book_authors = document.getElementById("book_authors");
+  let book_publisher = document.getElementById("book_publisher");
+  let book_summary = document.getElementById("book_summary");
 
-        $( total_result ).append(msg.meta.pageable_count);
-        $( title ).append(bookSearch + " | 검색 결과");
+  /* 책 표지 사진이 없으면 대체 이미지 넣기 */
+  if (msg.documents[0].thumbnail === "") {
+    book_thumbnail.setAttribute("src", "../images/no_img.png");
+  } else {
+    book_thumbnail.setAttribute("src", msg.documents[0].thumbnail);
+  }
 
-        for(let i=0; i<msg.documents.length; i++){
-            let new_divTag = document.createElement('div');
-            new_divTag.setAttribute('class', 'book');
-            //new_divTag.setAttribute('title', msg.documents[i].title);
-            tagArea.appendChild(new_divTag);
-
-            $( new_divTag ).append("<div><img src='" + msg.documents[i].thumbnail + "'/></div>");
-
-            let new_divTag2 = document.createElement('div');
-            new_divTag2.setAttribute('class', 'bookContents');
-            tagArea.appendChild(new_divTag2);
-            new_divTag.appendChild(new_divTag2);
-
-            $( new_divTag2 ).append("<p><strong><a href='book_detail.html'>" + msg.documents[i].title + "</a></strong></p>");
-            $( new_divTag2 ).append("<p class='left'>" + msg.documents[i].authors + "</p>");
-            $( new_divTag2 ).append("<p class='left'>&middot</p>");
-            $( new_divTag2 ).append("<p class='left'>" + msg.documents[i].publisher + "</p>");
-            $( new_divTag2 ).append("<p>" + msg.documents[i].contents + "</p>");
-
-            console.log(msg.documents[i].title);
-            console.log(msg.documents[i].thumbnail);
-        }
-        */
+  book_title.innerText = msg.documents[0].title;
+  book_authors.innerText = msg.documents[0].authors;
+  book_publisher.innerText = msg.documents[0].publisher;
+  book_summary.innerText = msg.documents[0].contents;
 });
 
+/* 읽은 상태 선택에 따른 팝업창 띄우기 */
 let popup_read = document.getElementById("popup_read");
 let popup_reading = document.getElementById("popup_reading");
 let popup_want = document.getElementById("popup_want");
@@ -70,6 +52,7 @@ document.getElementById("cart_submit").onclick = function () {
   }
 };
 
+/* 팝업창의 "닫기" 버튼 눌렀을 때 */
 let close_read = document.getElementById("close_read");
 let close_reading = document.getElementById("close_reading");
 let close_want = document.getElementById("close_want");
@@ -85,6 +68,7 @@ function close() {
   popup_want.style.display = "none";
 }
 
+/* "읽고 있는 책" 팝업창에서 독서량 단위 버튼 클릭 이벤트 */
 function selectUnit(event) {
   if (event.target.value === "pages") {
     document.getElementById("page").style.backgroundColor = "#666666";
@@ -101,6 +85,8 @@ function selectUnit(event) {
   }
 }
 
+/* "읽은 책", "읽고 있는 책" 팝업창 독서기간 제한 */
+/* 시작일은 현재 날짜 이전, 종료일은 시작일 이후, 현재 날짜 이전  */
 let start_read = document.querySelector("#start_read");
 let end_read = document.querySelector("#end_read");
 let start_reading = document.querySelector("#start_reading");
@@ -110,7 +96,6 @@ let now_utc = Date.now(); // 지금 날짜를 밀리초로
 let timeOff = new Date().getTimezoneOffset() * 60000; // 분단위를 밀리초로 변환
 // new Date(now_utc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
 let today = new Date(now_utc - timeOff).toISOString().split("T")[0];
-//document.getElementById("Date").setAttribute("max", today);
 
 start_read.setAttribute("max", today);
 start_reading.setAttribute("max", today);
