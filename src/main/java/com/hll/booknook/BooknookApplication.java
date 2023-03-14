@@ -1,7 +1,9 @@
 package com.hll.booknook;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@EntityScan(basePackages = {"com.hll.user"})
 @SpringBootApplication
 public class BooknookApplication {
 
