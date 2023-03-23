@@ -1,45 +1,18 @@
-package com.hll.booknook.domain;
+package com.hll.booknook.controller;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Entity
-@Table(name = "Library")
-@Getter
-@Setter
-public class Library {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pk;
-
-    @Column(name = "isbn", length = 30)
+public class LibraryForm {
     private String isbn;
-    @Column(name = "email", length = 200)
     private String email;
-    @Column(name = "con")
-    private int con; //책 읽는 상태
-    @Column(name = "start_date")
+    private int con;
     private Date start_date;
-    @Column(name = "finish_date")
     private Date finish_date;
-    @Column(name = "grade")
     private int grade;
-    @Column(name = "hope", length = 255)
     private String hope;
-    @Column(name = "mark")
     private int mark;
-
-    public Long getPk() {
-        return pk;
-    }
-
-    public void setPk(Long pk) {
-        this.pk = pk;
-    }
 
     public String getIsbn() {
         return isbn;
@@ -69,16 +42,18 @@ public class Library {
         return start_date;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStart_date(String start_date) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        this.start_date = format.parse(start_date);
     }
 
     public Date getFinish_date() {
         return finish_date;
     }
 
-    public void setFinish_date(Date finish_date) {
-        this.finish_date = finish_date;
+    public void setFinish_date(String finish_date) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        this.finish_date = format.parse(finish_date);
     }
 
     public int getGrade() {
