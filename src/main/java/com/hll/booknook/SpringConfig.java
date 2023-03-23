@@ -1,31 +1,25 @@
 package com.hll.booknook;
 
-import com.hll.booknook.repository.BookRepository;
-import com.hll.booknook.repository.JpaBookRepository;
-import com.hll.booknook.service.BookService;
+import com.hll.booknook.repository.LibraryRepository;
+import com.hll.booknook.service.LibraryService;
 import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
-
 @Configuration
 public class SpringConfig {
-    private final DataSource dataSource;
-    private final EntityManager em;
 
-    public SpringConfig(DataSource dataSource, EntityManager em) {
-        this.dataSource = dataSource;
-        this.em = em;
+    //EasyJpaLibraryRepository 사용.
+    private final LibraryRepository libraryRepository;
+
+    @Autowired
+    public SpringConfig(LibraryRepository libraryRepository) {
+        this.libraryRepository = libraryRepository;
     }
-
     @Bean
-    public BookService bookService(){
-        return new BookService(bookRepository());
+    public LibraryService libraryService(){
+        return new LibraryService(libraryRepository);
     }
 
-    @Bean
-    public BookRepository bookRepository(){
-        return new JpaBookRepository(em);
-    }
 }
