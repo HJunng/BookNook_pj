@@ -1,8 +1,8 @@
 package com.hll.booknook.controller;
 
 import com.hll.booknook.KakaoService;
-import com.hll.user.User;
-import com.hll.user.UserRepository;
+import com.hll.booknook.user.User;
+import com.hll.booknook.user.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

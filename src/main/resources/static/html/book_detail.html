@@ -12,188 +12,210 @@
     const urlParams = new URL(location.href).searchParams;
     const bookSearch = urlParams.get("bookSearch");
 
-    console.log(bookSearch);
+    function inputIsbn_1(){
+        document.getElementById("isbn").setAttribute("value",bookSearch);
+        document.getElementById("condition").setAttribute("value",0); //읽은 책
+
+        document.getElementById("read_form").submit();
+    }
+    function inputIsbn_2(){
+        document.getElementById("isbn2").setAttribute("value",bookSearch);
+        document.getElementById("condition2").setAttribute("value",1); //읽고있는 책
+
+        document.getElementById("reading_form").submit();
+    }
+    function inputIsbn_3(){
+        document.getElementById("isbn3").setAttribute("value",bookSearch);
+        document.getElementById("condition3").setAttribute("value",2); //읽고싶은 책
+
+        document.getElementById("willRead_form").submit();
+    }
 </script>
 <body>
-    <div id="container">
-        <header id="header">
-            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
-            <nav id="menubar">
-                <ul id="topMenu">
-                    <li><a href="#">서재</a></li>
-                    <li><a href="#">기록</a>
-                        <ul>
-                            <li><a href="#">기록하기</a></li>
-                            <li><a href="#">기록 보기</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">통계</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                </ul>
-            </nav>
-        </header>
+<div id="container">
+    <header id="header">
+        <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+        <nav id="menubar">
+            <ul id="topMenu">
+                <li><a href="http://localhost:8080/myLibrary">서재</a></li>
+                <li><a href="#">기록</a>
+                    <ul>
+                        <li><a href="#">기록하기</a></li>
+                        <li><a href="#">기록 보기</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">통계</a></li>
+                <li><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main id="main">
-            <div id="searchbar">
-                <form action="searchList.html" method="get">
-                    <input type="search" name="bookSearch" placeholder="도서를 입력하세요">
-                    <input type="image" src="../images/search.png">
-                </form>
-            </div>
-
-            <div id="contents">
-                <div id="bookDetail">
-                    <div id="thumbnail">
-                        <div><img src="" alt="책 이미지" id="book_thumbnail"></div>
-                    </div>
-                    <div>
-                        <div id="bookMeta">
-                            <div id="title">
-                                <label>책 제목</label>
-                                <p id="book_title"></p>
-                            </div>
-                            <div id="authors">
-                                <label>지은이</label>
-                                <p id="book_authors"></p>
-                            </div>
-                            <div id="publisher">
-                                <label>출판사</label>
-                                <p id="book_publisher"></p>
-                            </div>
-                            <div id="summary">
-                                <label>책 소개</label>
-                                <p id="book_summary"></p>
-                            </div>
-                        </div>
-                        <div id="cart">
-                            <form action="">
-                                <label for="cartList">읽은 상태</label>
-                                <ul id="cartList">
-                                    <li>
-                                        <input type="radio" id="Read"  name="cart" value="read">
-                                        <label for="Read">✅ 읽은 책</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="Reading" name="cart" value="reading">
-                                        <label for="Reading">📖 읽고 있는 책</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="WanttoRead" name="cart" value="wanttoread">
-                                        <label for="WanttoRead">💗 읽고 싶은 책</label>
-                                    </li>
-                                </ul>
-                                <input type="button" id="cart_submit" value="담기">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <div id="popup_layer">
-        <div class="popup" id="popup_read">
-            <form action="/books/readed" method="post">
-                <div>
-                    <strong>✅ 읽은 책</strong>
-                </div>
-                <div>
-                    <input id="isbn" name="isbn" value="">
-                    <p id="isbn2"></p>
-                    <script>
-                        document.getElementById("isbn2").innerHTML=bookSearch;
-                    </script>
-                </div>
-                <div class="popup_contents">
-                    <div class="period" id="period_read">
-                        <label for="period_read">독서 기간</label>
-                        <div class="popup_box">
-                            <label for="start_read">📅 시작일</label>
-                            <input type="date" id="start_read" max="">
-                        </div>
-                        <div class="popup_box">
-                            <label for="end_read">📅 종료일</label>
-                            <input type="date" id="end_read" max="" min="">
-                        </div>
-                    </div>
-                    <div id="star">
-                        <label for="star">평점</label>
-                        <ul>
-                            <li><button>⭐</button></li>
-                            <li><button>⭐</button></li>
-                            <li><button>⭐</button></li>
-                            <li><button>⭐</button></li>
-                            <li><button>⭐</button></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="btn_popup" id="btn_read">
-                    <input type="submit" value="저장">
-                    <input type="button" id="close_read" value="닫기">
-                </div>
+    <main id="main">
+        <div id="searchbar">
+            <form action="searchList.html" method="get">
+                <input type="search" name="bookSearch" placeholder="도서를 입력하세요">
+                <input type="image" src="../images/search.png">
             </form>
         </div>
 
-        
-        <div class="popup" id="popup_reading">
-            <form action="/books/reading" method="post">
+        <div id="contents">
+            <div id="bookDetail">
+                <div id="thumbnail">
+                    <div><img src="" alt="책 이미지" id="book_thumbnail"></div>
+                </div>
                 <div>
-                    <strong>📖 읽고 있는 책</strong>
-                </div>
-                <div class="popup_contents">
-                    <div class="period" id="period_reading">
-                        <label>독서기간</label>
-                        <div class="popup_box">
-                            <label for="start_reading">📅 시작일</label>
-                            <input type="date" id="start_reading">
+                    <div id="bookMeta">
+                        <div id="title">
+                            <label>책 제목</label>
+                            <p id="book_title"></p>
+                        </div>
+                        <div id="authors">
+                            <label>지은이</label>
+                            <p id="book_authors"></p>
+                        </div>
+                        <div id="publisher">
+                            <label>출판사</label>
+                            <p id="book_publisher"></p>
+                        </div>
+                        <div id="summary">
+                            <label>책 소개</label>
+                            <p id="book_summary"></p>
                         </div>
                     </div>
-                    <div id="amount_reading">
-                        <div>
-                            <label>독서량</label>
-                            <div id="btn_amount_unit">
-                                <label id="page">...<input type="radio" name="amount_unit" value="pages" onclick="selectUnit(event)" checked></label>
-                                <label id="per">%<input type="radio" name="amount_unit" value="per" onclick="selectUnit(event)"></label>
-                                
-                            </div>
-                        </div>
-                        <div class="popup_box">
-                            <label for="page_reading">읽은 페이지</label>
-                            <div>
-                                <input type="number" value="0" id="page_reading"><span id="span_page">쪽</span>
-                            </div>
-                        </div>
+                    <div id="cart">
+                        <form action="">
+                            <label for="cartList">읽은 상태</label>
+                            <ul id="cartList">
+                                <li>
+                                    <input type="radio" id="Read"  name="cart" value="read">
+                                    <label for="Read">✅ 읽은 책</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="Reading" name="cart" value="reading">
+                                    <label for="Reading">📖 읽고 있는 책</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="WanttoRead" name="cart" value="wanttoread">
+                                    <label for="WanttoRead">💗 읽고 싶은 책</label>
+                                </li>
+                            </ul>
+                            <input type="button" id="cart_submit" value="담기">
+                        </form>
                     </div>
                 </div>
-                <div class="btn_popup">
-                    <input type="submit" value="저장">
-                    <input type="button" id="close_reading" value="닫기">
-                </div>
-            </form>
+            </div>
         </div>
 
-        <div class="popup" id="popup_want">
-            <form action="">
-                <div>
-                    <strong>💗 읽고 싶은 책</strong>
-                </div>
-                <div class="popup_contents">
-                    <label for="expectation">기대평</label>
+    </main>
+</div>
+
+<div id="popup_layer">
+    <div class="popup" id="popup_read">
+        <form id="read_form" action="/books/read" method="post">
+            <div>
+                <strong>✅ 읽은 책</strong>
+            </div>
+            <div>
+                <input id="isbn" name="isbn" type="hidden" value="54321">
+                <input id="condition" name="con" type="hidden">
+            </div>
+            <div class="popup_contents">
+                <div class="period" id="period_read">
+                    <label for="period_read">독서 기간</label>
                     <div class="popup_box">
-                        <textarea name="expectation" id="expectation" placeholder="기대평을 입력하세요."></textarea>
+                        <label for="start_read">📅 시작일</label>
+                        <input type="date" id="start_read"  name="start_date" max="">
+                    </div>
+                    <div class="popup_box">
+                        <label for="end_read">📅 종료일</label>
+                        <input type="date" id="end_read" name="finish_date" max="" min="">
                     </div>
                 </div>
-                <div class="btn_popup">
-                    <input type="submit" value="저장">
-                    <input type="button" id="close_want" value="닫기">
+                <div id="star">
+                    <label for="star">평점</label>
+                    <ul>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                        <li><button>⭐</button></li>
+                    </ul>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="btn_popup" id="btn_read">
+                <input type="button" onclick="inputIsbn_1()" value="저장">
+                <input type="button" id="close_read" value="닫기">
+            </div>
+        </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+
+    <div class="popup" id="popup_reading">
+        <form id="reading_form" action="/books/read" method="post">
+            <div>
+                <strong>📖 읽고 있는 책</strong>
+            </div>
+            <div>
+                <input id="isbn2" name="isbn" type="hidden" value="54321">
+                <input id="condition2" name="con" type="hidden">
+            </div>
+            <div class="popup_contents">
+                <div class="period" id="period_reading">
+                    <label>독서기간</label>
+                    <div class="popup_box">
+                        <label for="start_reading">📅 시작일</label>
+                        <input type="date" id="start_reading" name="start_date">
+                    </div>
+                </div>
+                <div id="amount_reading">
+                    <div>
+                        <label>독서량</label>
+                        <div id="btn_amount_unit">
+                            <label id="page">...<input type="radio" name="amount_unit" value="pages" onclick="selectUnit(event)" checked></label>
+                            <label id="per">%<input type="radio" name="amount_unit" value="per" onclick="selectUnit(event)"></label>
+
+                        </div>
+                    </div>
+                    <div class="popup_box">
+                        <label for="page_reading">읽은 페이지</label>
+                        <div>
+                            <input type="number" name="mark" value="0" id="page_reading"><span id="span_page">쪽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_popup">
+                <input type="button" onclick="inputIsbn_2()" value="저장">
+                <input type="button" id="close_reading" value="닫기">
+            </div>
+        </form>
+    </div>
+
+    <div class="popup" id="popup_want">
+        <form id="willRead_form" action="/books/read" method="post">
+            <div>
+                <strong>💗 읽고 싶은 책</strong>
+            </div>
+            <div>
+                <input id="isbn3" name="isbn" type="hidden" value="54321">
+                <input id="condition3" name="con" type="hidden">
+            </div>
+            <div class="popup_contents">
+                <label for="expectation">기대평</label>
+                <div class="popup_box">
+                    <textarea id="expectation" name="hope" placeholder="기대평을 입력하세요."></textarea>
+                </div>
+            </div>
+            <div class="btn_popup">
+                <input type="button" onclick="inputIsbn_3()" value="저장">
+                <input type="button" id="close_want" value="닫기">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <script src="../js/book_detail.js"></script>
+<script src="../js/book_detail.js"></script>
 </body>
 </html>
