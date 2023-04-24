@@ -2,6 +2,8 @@ package com.hll.booknook.service;
 
 import com.hll.booknook.domain.Library;
 import com.hll.booknook.repository.LibraryRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 /**
  * The type Library service.
  */
+@Service
 @Transactional //jpa 땜시 있어야 함.
 public class LibraryService {
 
@@ -50,5 +53,10 @@ public class LibraryService {
      */
     public List<Library> findLibrarysByEmail(String email){
         return libraryRepository.findAllByEmail(email);
+    }
+
+    //con = 1 인 회원 받아오기
+    public List<Library> getList(){
+        return libraryRepository.findByCon(0);
     }
 }
