@@ -1,6 +1,6 @@
-package com.hll.booknook.repository;
+package com.hll.booknook.library;
 
-import com.hll.booknook.domain.Library;
+import com.hll.booknook.library.Library;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

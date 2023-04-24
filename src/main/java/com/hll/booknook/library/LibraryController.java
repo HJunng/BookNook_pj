@@ -1,7 +1,5 @@
-package com.hll.booknook.controller;
+package com.hll.booknook.library;
 
-import com.hll.booknook.domain.Library;
-import com.hll.booknook.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +17,12 @@ public class LibraryController {
     public LibraryController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
-    @GetMapping("/books")
+    @GetMapping("/")
     public String show_index(){
         return "redirect:/html/index.html";
     }
 
-    @PostMapping("/books/read") // 책 넣기
+    @PostMapping("/books/input") // 책 넣기
     public String create(LibraryForm form){
         Library library = new Library();
         library.setIsbn(form.getIsbn());
