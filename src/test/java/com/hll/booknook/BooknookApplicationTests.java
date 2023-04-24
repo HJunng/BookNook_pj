@@ -1,7 +1,6 @@
 package com.hll.booknook;
 
-import com.hll.booknook.domain.Library;
-import com.hll.booknook.repository.LibraryRepository;
+import com.hll.booknook.library.LibraryRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
