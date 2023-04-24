@@ -31,6 +31,8 @@
         <td th:text="${book.con}"></td>
         <td th:text="${book.mark}"></td>
         <td th:text="${book.hope}"></td>
+        <td><button th:onclick="|location.href='@{/record/writing(isbn=${book.isbn})}'|">기록하기</button></td>
+        <td><button th:onclick="|location.href='@{/record/show(email=${book.email},isbn=${book.isbn})}'|">기록보기</button></td>
       </tr>
       </tbody>
     </table>
