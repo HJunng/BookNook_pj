@@ -1,4 +1,4 @@
-package com.hll.booknook.controller;
+package com.hll.booknook.user;
 
 import com.hll.booknook.KakaoService;
 import com.hll.booknook.user.User;
@@ -34,6 +34,7 @@ public class UserController {
         log.info("callback controller");
         return "NaverCallback";
     }
+
     /*카카오*/
     @Autowired
     private KakaoService kakaoService;
@@ -57,9 +58,9 @@ public class UserController {
             } else {
                 System.out.println("이미 로그인 되어 있음");
             }
-            return "redirect:/";//로그인 성공시 접속될 주소 입력하기
+            return "redirect:/"; //로그인 성공시 접속될 주소 입력하기
         }
-        return "redirect:/";//로그인 실패시 접속될 주소 입력하기
+        return "redirect:/"; //로그인 실패시 접속될 주소 입력하기
     }
 
 }
