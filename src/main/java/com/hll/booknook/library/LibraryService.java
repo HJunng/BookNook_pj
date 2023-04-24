@@ -1,7 +1,7 @@
-package com.hll.booknook.service;
+package com.hll.booknook.library;
 
-import com.hll.booknook.domain.Library;
-import com.hll.booknook.repository.LibraryRepository;
+import com.hll.booknook.library.Library;
+import com.hll.booknook.library.LibraryRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -9,25 +9,16 @@ import java.util.List;
 /**
  * The type Library service.
  */
-@Transactional //jpa 땜시 있어야 함.
+@Transactional //jpa 때문에 있어야 함.
 public class LibraryService {
 
     private final LibraryRepository libraryRepository;
 
-    /**
-     * A new Library service.
-     *
-     */
     public LibraryService(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }
 
-    /**
-     * 서재 저장
-     *
-     * @param library
-     * @return 서재 pk
-     */
+    //서재 저장
     public Long save(Library library) {
         validateDuplicateLibrary(library); //중복 검증
         libraryRepository.save(library);
@@ -41,13 +32,7 @@ public class LibraryService {
                     throw new IllegalStateException("이미 해당 책을 서재에 담으셨습니다.");
                 });
     }
-
-    /**
-     * 회원별 서재 조회
-     *
-     * @param email
-     * @return the list
-     */
+    // 회원별 서재 조회
     public List<Library> findLibrarysByEmail(String email){
         return libraryRepository.findAllByEmail(email);
     }
