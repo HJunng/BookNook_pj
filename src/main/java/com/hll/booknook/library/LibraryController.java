@@ -22,9 +22,12 @@ public class LibraryController {
     }
     @GetMapping("/")
     public String show_index(){
-        return "redirect:/html/index.html";
+        return "index";
     }
-
+    @GetMapping("/searchList")
+    public String search_list(){
+        return "searchList";
+    }
     @GetMapping("/books/ranking")//책 순위: 임시 페이지 원래는 redirect:/html/index.html에 나와야하는 기능
     public String rank_index(Model model) {
         List<Library> rankList = this.libraryService.getList();
