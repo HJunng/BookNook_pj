@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/library.css">
+    <title>서재</title>
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+            <nav id="menubar">
+                <ul id="topMenu">
+                    <li><a href="library.html">서재</a></li>
+                    <li><a href="#">기록</a>
+                        <ul>
+                            <li><a href="#">기록하기</a></li>
+                            <li><a href="#">기록 보기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">통계</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <!-- 일단 서재에는 책 검색하는 부분 없는 걸로 함. 추후 서재 검색으로 할 지 결정 -->
+            <!--
+            <div id="searchbar">
+                <form action="searchList.html" method="get">
+                    <input type="search" name="bookSearch" placeholder="도서를 입력하세요">
+                    <input type="image" src="../images/search.png">
+                </form>
+            </div>
+            -->
+
+            <div id="library_nav_area">
+                <ul id="library_nav_ul">
+                    <form action="">
+                        <li><input type="radio" name="library_nav" id="read_nav" checked value="read_nav"><label for="read_nav">읽은 책</label></li>
+                        <li><input type="radio" name="library_nav" id="reading_nav" value="reading_nav"><label for="reading_nav">읽고 있는 책</label></li>
+                        <li><input type="radio" name="library_nav" id="want_nav" value="want_nav"><label for="want_nav">읽고 싶은 책</label></li>
+                    </form>
+                </ul>
+            </div>
+            <div id="library_area">
+                <table id="read_library">
+                    <!-- js로 들어올 부분, 한 줄에 책 4권씩 -->
+                    <!--
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    -->
+                </table>
+                <table id="reading_library">
+
+                </table>
+                <table id="want_library">
+
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="../js/library.js"></script>
+</body>
+</html>

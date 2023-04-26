@@ -1,0 +1,26 @@
+<!--메인페이지의 랭킹 받아오는 화면입니다.-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>순위</th>
+            <th>아이디</th>
+            <th>총 읽은 책</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ranklist, loop: ${rankList}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${ranklist.email}"></td>
+            <td th:text="${ranklist.cnt}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
