@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>서재</title>
+</head>
+<style>
+  th, td {padding: 10px;}
+</style>
+<body>
+<h2>나의 서재</h2>
+<br><br>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이메일</th>
+        <th>ISBN</th>
+        <th>상태</th>
+        <th>page</th>
+        <th>기대평</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="book,bookStat : ${books}">
+        <td th:text="${bookStat.count}"></td>
+        <td th:text="${book.email}"></td>
+        <td th:text="${book.isbn}"></td>
+        <td th:text="${book.con}"></td>
+        <td th:text="${book.mark}"></td>
+        <td th:text="${book.hope}"></td>
+        <td><button th:onclick="|location.href='@{/record/writing(isbn=${book.isbn})}'|">기록하기</button></td>
+        <td><button th:onclick="|location.href='@{/record/show(email=${book.email},isbn=${book.isbn})}'|">기록보기</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
