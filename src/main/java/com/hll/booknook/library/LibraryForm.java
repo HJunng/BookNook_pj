@@ -6,13 +6,14 @@ import java.util.Date;
 
 public class LibraryForm {
     private String isbn;
+    private String author;
     private String email;
-    private int con;
+    private Integer con;
     private Date start_date;
     private Date finish_date;
-    private int grade;
+    private Integer grade;
     private String hope;
-    private int mark;
+    private Integer mark;
 
     public String getIsbn() {
         return isbn;
@@ -20,6 +21,14 @@ public class LibraryForm {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getEmail() {
@@ -30,7 +39,7 @@ public class LibraryForm {
         this.email = email;
     }
 
-    public int getCon() {
+    public Integer getCon() {
         return con;
     }
 
@@ -56,7 +65,7 @@ public class LibraryForm {
         this.finish_date = format.parse(finish_date);
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
@@ -72,7 +81,7 @@ public class LibraryForm {
         this.hope = hope;
     }
 
-    public int getMark() {
+    public Integer getMark() {
         return mark;
     }
 

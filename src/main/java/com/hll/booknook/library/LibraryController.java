@@ -61,6 +61,7 @@ public class LibraryController {
         Library library = new Library();
         library.setIsbn(form.getIsbn());
         library.setCon(form.getCon()); // 0:읽은책 1:읽고있는책 2:읽고싶은책
+        library.setAuthor(form.getAuthor());
         library.setMark(form.getMark());
         library.setHope(form.getHope());
         library.setStart_date(form.getStart_date());
