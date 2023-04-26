@@ -18,6 +18,9 @@ public class Library {
     private String isbn;
     @Column(name = "email", length = 200)
     private String email;
+    @Column(name="author",length=30)
+    private String author;
+
     @Column(name = "con")
     private Integer con; //책 읽는 상태
     @Column(name = "start_date")
@@ -53,6 +56,14 @@ public class Library {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Integer getCon() {
@@ -99,7 +110,7 @@ public class Library {
         return mark;
     }
 
-    public void setMark(int mark) {
+    public void setMark(Integer mark) {
         this.mark = mark;
     }
 }
