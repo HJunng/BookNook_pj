@@ -47,7 +47,7 @@ public class RecordController {
         recordService.save(record);
 
         //return "showRecords"; //여기로 가면 showAll처럼 매핑이 안되서 아직 안보임.
-        return "redirect:/html/index.html";
+        return "index";
     }
 
     // 기록보기로 들어가면 email에 해당되는 기록들 전부 나옴.

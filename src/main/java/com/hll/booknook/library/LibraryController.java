@@ -75,7 +75,7 @@ public class LibraryController {
 
         libraryService.save(library);
 
-        return "redirect:/html/index.html";
+        return "index";
     }
 
     @GetMapping("/myLibrary") // 서재 조회
