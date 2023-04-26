@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class LibraryForm {
     private String isbn;
+    private String author;
     private String email;
     private Integer con;
     private Date start_date;
@@ -20,6 +21,14 @@ public class LibraryForm {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getEmail() {
