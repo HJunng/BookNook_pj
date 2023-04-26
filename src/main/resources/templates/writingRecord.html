@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>기록하기</title>
+</head>
+<script>
+    const urlParams = new URL(location.href).searchParams;
+    const isbn = urlParams.get("isbn");
+
+    function post_isbn(){
+        document.getElementById("isbn").setAttribute("value",isbn);
+
+        document.getElementById("writingRecord").submit();
+    }
+</script>
+<body>
+<h1>기록하기</h1>
+<div class="container">
+    <form id="writingRecord" action="/record/save"  method="post">
+        <input id="isbn" name="isbn" type="hidden" value="">
+        <h4>책_사진&nbsp;&nbsp;&nbsp;&nbsp;책설명(이름, 저자...)</h4><br><br>
+        <p>내용</p> <textarea name="contents" maxlength="255" cols="50" rows="10" placeholder="적고 싶은 내용을 입력해주세요..."></textarea><br><br>
+        <button type="button" onclick="post_isbn()" style="background-color: yellowgreen" >저장</button>&nbsp;&nbsp;<button onclick="history.back(+1)">취소</button>
+    </form>
+</div>
+</body>
+</html>

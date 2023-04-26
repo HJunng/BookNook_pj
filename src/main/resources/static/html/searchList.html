@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,16 @@
     <link rel="stylesheet" href="../css/searchList.css">
     <title>BookNook - </title>
 </head>
+
 <body>
     <div id="container">
         <header id="header">
-            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+            <div id="logo"><a href="index.html">
+                    <h1>BookNook</h1>
+                </a></div>
             <nav id="menubar">
                 <ul id="topMenu">
-                    <li><a href="#">서재</a></li>
+                    <li><a href="http://localhost:8080/myLibrary">서재</a></li>
                     <li><a href="#">기록</a>
                         <ul>
                             <li><a href="#">기록하기</a></li>
@@ -33,9 +37,11 @@
                     <input type="image" src="../images/search.png">
                 </form>
             </div>
-            
+
             <div id="tagArea">
-                <div><p>전체 <span id="total_result"></span>건</p></div>
+                <div>
+                    <p>전체 <span id="total_result"></span>건</p>
+                </div>
                 <!-- searchList.js로 입력되는 태그들 -->
                 <!--
                 <div class="book">
@@ -50,14 +56,20 @@
                 </div>
                 -->
             </div>
+            <div id="pagingArea">
+                <ul id="pagingul">
+
+                </ul>
+            </div>
         </main>
         <footer>
 
         </footer>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="../js/searchList.js"></script>
 </body>
+
 </html>
