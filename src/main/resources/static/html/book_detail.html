@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/book_detail.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Document</title>
 </head>
+<script>
+    const urlParams = new URL(location.href).searchParams;
+    const bookSearch = urlParams.get("bookSearch");
+
+    function inputIsbn_1() {
+        document.getElementById("isbn").setAttribute("value", bookSearch);
+        document.getElementById("condition").setAttribute("value", 0); //읽은 책
+
+        document.getElementById("read_form").submit();
+    }
+    function inputIsbn_2() {
+        document.getElementById("isbn2").setAttribute("value", bookSearch);
+        document.getElementById("condition2").setAttribute("value", 1); //읽고있는 책
+
+        document.getElementById("reading_form").submit();
+    }
+    function inputIsbn_3() {
+        document.getElementById("isbn3").setAttribute("value", bookSearch);
+        document.getElementById("condition3").setAttribute("value", 2); //읽고싶은 책
+
+        document.getElementById("willRead_form").submit();
+    }
+</script>
+
 <body>
     <div id="container">
         <header id="header">
-            <div id="logo"><a href="index.html"><h1>BookNook</h1></a></div>
+            <div id="logo"><a href="index.html">
+                    <h1>BookNook</h1>
+                </a></div>
             <nav id="menubar">
                 <ul id="topMenu">
-                    <li><a href="library.html">서재</a></li>
+                    <li><a href="http://localhost:8080/myLibrary">서재</a></li>
                     <li><a href="#">기록</a>
                         <ul>
                             <li><a href="#">기록하기</a></li>
@@ -64,7 +92,7 @@
                                 <label for="cartList">읽은 상태</label>
                                 <ul id="cartList">
                                     <li>
-                                        <input type="radio" id="Read"  name="cart" value="read">
+                                        <input type="radio" id="Read" name="cart" value="read">
                                         <label for="Read">✅ 읽은 책</label>
                                     </li>
                                     <li>
@@ -77,7 +105,7 @@
                                     </li>
                                 </ul>
                                 <input type="button" id="cart_submit" value="담기">
-                            </form> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -122,7 +150,7 @@
             </form>
         </div>
 
-        
+
         <div class="popup" id="popup_reading">
             <form action="">
                 <div>
@@ -140,9 +168,11 @@
                         <div>
                             <label>독서량</label>
                             <div id="btn_amount_unit">
-                                <label id="page">...<input type="radio" name="amount_unit" value="pages" onclick="selectUnit(event)" checked></label>
-                                <label id="per">%<input type="radio" name="amount_unit" value="per" onclick="selectUnit(event)"></label>
-                                
+                                <label id="page">...<input type="radio" name="amount_unit" value="pages"
+                                        onclick="selectUnit(event)" checked></label>
+                                <label id="per">%<input type="radio" name="amount_unit" value="per"
+                                        onclick="selectUnit(event)"></label>
+
                             </div>
                         </div>
                         <div class="popup_box">
@@ -161,26 +191,31 @@
         </div>
 
         <div class="popup" id="popup_want">
-            <form action="">
+            <form id="willRead_form" action="/books/input" method="post">
                 <div>
                     <strong>💗 읽고 싶은 책</strong>
+                </div>
+                <div>
+                    <input id="isbn3" name="isbn" type="hidden" value="54321">
+                    <input id="condition3" name="con" type="hidden">
                 </div>
                 <div class="popup_contents">
                     <label for="expectation">기대평</label>
                     <div class="popup_box">
-                        <textarea name="expectation" id="expectation" placeholder="기대평을 입력하세요."></textarea>
+                        <textarea id="expectation" name="hope" placeholder="기대평을 입력하세요."></textarea>
                     </div>
                 </div>
                 <div class="btn_popup">
-                    <input type="submit" value="저장">
+                    <input type="button" onclick="inputIsbn_3()" value="저장">
                     <input type="button" id="close_want" value="닫기">
                 </div>
             </form>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="../js/book_detail.js"></script>
 </body>
+
 </html>

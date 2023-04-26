@@ -1,4 +1,4 @@
-package com.hll.user;
+package com.hll.booknook.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
