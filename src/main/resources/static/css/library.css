@@ -1,110 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 #container {
-    margin: 0 auto;
-    width: 1280px;
+  margin: 0 auto;
+  width: 1280px;
 }
 html {
-    overflow: scroll;
+  overflow: scroll;
 }
 /* 헤더 영역 */
 #header {
-    width: 100%;
-    height: 80px;
-    border-bottom: 1.5px solid #0b5c10;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1.5px solid #0b5c10;
 }
 
 /* 로고 영역 */
 #logo {
-    float: left;
-    width: 200px;
-    height: 80px;
-    line-height: 80px;
-    padding-left: 30px;
+  float: left;
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  padding-left: 30px;
 }
 #logo h1 {
-    font-family: 'Righteous', cursive;
-    font-weight: 600;
-    font-size: 30px;
-    color: black;
+  font-family: "Righteous", cursive;
+  font-weight: 600;
+  font-size: 30px;
+  color: black;
 }
 
 /* 네비게이션 영역 */
 nav {
-    width: 330px;
-    height: 80px;
-    margin: 0 auto; /* 가운데 정렬 */
+  width: 330px;
+  height: 80px;
+  margin: 0 auto; /* 가운데 정렬 */
 }
 #topMenu {
-    height: 80px;
-    line-height: 80px;
-    
+  height: 80px;
+  line-height: 80px;
 }
 #topMenu > li {
-    float: left; /* 가로로 설정 */
-    position: relative;
+  float: left; /* 가로로 설정 */
+  position: relative;
 }
 #topMenu > li > a {
-    display: block;
-    font-weight: 500;
-    padding: 0px 20px;
-    font-family: 'Noto Sans KR', sans-serif;
-    color: rgb(44, 44, 44);
+  display: block;
+  font-weight: 500;
+  padding: 0px 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: rgb(44, 44, 44);
 }
 #topMenu > li > a:hover {
-    color: rgb(158, 32, 32);
-    font-weight: 900;
+  color: rgb(158, 32, 32);
+  font-weight: 900;
 }
 #topMenu > li > ul {
-    display: none;
-    position: absolute;
-    width: 250px;
-    background-color: white;
-    border: 1px solid black;
-    float: left;
-    left: 0;
-    margin: 0;
-    padding: 10px 0;
+  display: none;
+  position: absolute;
+  width: 250px;
+  background-color: white;
+  border: 1px solid black;
+  float: left;
+  left: 0;
+  margin: 0;
+  padding: 10px 0;
 }
 #topMenu > li > ul > li {
-    line-height: 100%;
-    padding: 10px 10px 10px 30px;
+  line-height: 100%;
+  padding: 10px 10px 10px 30px;
 }
 #topMenu > li > ul > li > a {
-    font-size: 14px;
-    font-family: 'Noto Sans KR', sans-serif;
-    color: rgb(131, 131, 131);
-    padding: 0px 5px;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: rgb(131, 131, 131);
+  padding: 0px 5px;
 }
 #topMenu > li:hover > ul {
-    display: block;
-    z-index: 10;
+  display: block;
+  z-index: 10;
 }
 #topMenu > li > ul > li > a:hover {
-    color: rgb(44, 44, 44);
-    font-weight: 900;
+  color: rgb(44, 44, 44);
+  font-weight: 900;
 }
 
 /* 메인 콘텐츠 영역 */
 #main {
-    width: 100%;
-    padding-top: 30px;
-    background-color: #ffffff;
+  width: 100%;
+  padding-top: 30px;
+  background-color: #ffffff;
 }
 
 /* 검색창 영역 - 현재는 검색창 x */
@@ -151,43 +150,47 @@ nav {
 
 /* 서재 네비게이션 영역 */
 #library_nav_area {
-    width: 900px;
-    height: 50px;
-    padding: 10px 0;
-    margin: 10px auto;
+  width: 900px;
+  height: 50px;
+  padding: 10px 0;
+  margin: 10px auto;
 }
 #library_nav_ul li {
-    float: left;
-    margin-right: 30px;
+  float: left;
+  margin-right: 30px;
 }
 #library_nav_ul label {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 20px;
-    color: #3b3b3b;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  color: #3b3b3b;
 }
-#library_nav_ul input[type=radio] {
-    display: none;
+#library_nav_ul input[type="radio"] {
+  display: none;
 }
-#library_nav_ul input[type=radio]:checked + label {
-    color: #0b5c10;
-    font-weight: 600;
+#library_nav_ul input[type="radio"]:checked + label {
+  color: #0b5c10;
+  font-weight: 600;
 }
 #library_nav_ul label:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* 서재 영역 */
 #library_area {
-    width: 900px;
-    min-height: 200px;
-    margin: 0 auto;
-    background-color: antiquewhite;
+  width: 1100px;
+  min-height: 200px;
+  margin: 0 auto;
+  background-color: antiquewhite;
 }
 
 /* 읽은 책 서재 */
 
-
 /* 읽고 있는 책 서재 */
-
+#reading_library {
+  display: none;
+}
 
 /* 읽고 싶은 책 서재 */
+#want_library {
+  display: none;
+}
