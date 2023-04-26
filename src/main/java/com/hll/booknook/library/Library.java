@@ -55,11 +55,11 @@ public class Library {
         this.email = email;
     }
 
-    public int getCon() {
+    public Integer getCon() {
         return con;
     }
 
-    public void setCon(int con) {
+    public void setCon(Integer con) {
         this.con = con;
     }
 
@@ -79,11 +79,11 @@ public class Library {
         this.finish_date = finish_date;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
@@ -95,7 +95,7 @@ public class Library {
         this.hope = hope;
     }
 
-    public int getMark() {
+    public Integer getMark() {
         return mark;
     }
 
