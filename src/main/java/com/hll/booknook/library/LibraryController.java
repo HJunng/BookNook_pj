@@ -22,7 +22,7 @@ public class LibraryController {
     }
     @GetMapping("/")
     public String show_index(){
-        return "redirect:/html/index.html";
+        return "index";
     }
 
     @GetMapping("/books/ranking")//책 순위: 임시 페이지 원래는 redirect:/html/index.html에 나와야하는 기능
@@ -72,7 +72,7 @@ public class LibraryController {
 
         libraryService.save(library);
 
-        return "redirect:/html/index.html";
+        return "index";
     }
 
     @GetMapping("/myLibrary") // 서재 조회
