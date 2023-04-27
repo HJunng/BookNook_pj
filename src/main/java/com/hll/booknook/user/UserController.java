@@ -44,14 +44,14 @@ public class UserController {
         HashMap<String, Object> userInfo = naverService.getUserInfo(access_Token);
         User u = this.userRepository.findBySnsAndEmail(78, String.valueOf(userInfo.get("email")));
         //등록된 사용자 정보가 없으면 regist user
-        if (u == null) {
+        if (u==null) {
             user.setEmail(String.valueOf(userInfo.get("email")));
             user.setUsername(String.valueOf(userInfo.get("name")));
             user.setSns(78); //카카오의 K:아스키넘버(75) N:아스키넘버(78)
             this.userRepository.save(user);
         }
         session.setAttribute("access_token", access_Token);
-        session.setAttribute("name", u.getUsername());
+        session.setAttribute("name",String.valueOf(userInfo.get("name")));
         session.setMaxInactiveInterval(20*60);
         return "redirect:/login";
     }
@@ -69,16 +69,17 @@ public class UserController {
         String access_Token = kakaoService.getAccessToken(code);
         HashMap<String, Object> userInfo = kakaoService.getUserInfo(access_Token);
         User u = this.userRepository.findBySnsAndEmail(75, String.valueOf(userInfo.get("email")));
+
         //등록된 사용자 정보가 없으면 regist user
         if (u == null) {
             user.setEmail(String.valueOf(userInfo.get("email")));
-            user.setUsername(String.valueOf(userInfo.get("name")));
+            user.setUsername(String.valueOf(userInfo.get("nickname")));
             user.setSns(75); //카카오의 K:아스키넘버(75)
             this.userRepository.save(user);
         }
         //로그인 세션 생성하기
         session.setAttribute("access_token", access_Token);
-        session.setAttribute("name", u.getUsername());
+        session.setAttribute("name", String.valueOf(userInfo.get("nickname")));
         session.setMaxInactiveInterval(20*60);
         return "redirect:/login";
     }
