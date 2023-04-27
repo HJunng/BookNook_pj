@@ -1,6 +1,7 @@
 /* searchList.html에서 클릭한 책의 정보(isbn) 받기 */
 const urlParams = new URL(location.href).searchParams;
 const bookSearch = urlParams.get("Isbn");
+var book_authors;
 
 $.ajax({
   method: "GET",
@@ -13,7 +14,7 @@ $.ajax({
   /* book_detail.html에 책 정보 넣기 */
   let book_thumbnail = document.getElementById("book_thumbnail");
   let book_title = document.getElementById("book_title");
-  let book_authors = document.getElementById("book_authors");
+  book_authors = document.getElementById("book_authors");
   let book_publisher = document.getElementById("book_publisher");
   let book_summary = document.getElementById("book_summary");
 
@@ -30,27 +31,25 @@ $.ajax({
   book_summary.innerText = msg.documents[0].contents;
 
 });
- let authors = document.getElementById("book_authors").innerText;
- console.log(authors);
  function inputIsbn_1() {
    document.getElementById("isbn1").setAttribute("value", bookSearch);
    document.getElementById("condition1").setAttribute("value", 0); //읽은 책
-   document.getElementById("author1").setAttribute("value",authors);
+   document.getElementById("author1").setAttribute("value",book_authors.innerText);
 
    document.getElementById("read_form").submit();
  }
  function inputIsbn_2() {
    document.getElementById("isbn2").setAttribute("value", bookSearch);
    document.getElementById("condition2").setAttribute("value", 1); //읽고있는 책
-   document.getElementById("author2").setAttribute("value",authors);
+   document.getElementById("author2").setAttribute("value",book_authors.innerText);
 
    document.getElementById("reading_form").submit();
  }
  function inputIsbn_3() {
    document.getElementById("isbn3").setAttribute("value", bookSearch);
    document.getElementById("condition3").setAttribute("value", 2); //읽고싶은 책
-   document.getElementById("author3").setAttribute("value",authors);
-   console.log(authors);
+   document.getElementById("author3").setAttribute("value",book_authors.innerText);
+
    document.getElementById("willRead_form").submit();
  }
 
