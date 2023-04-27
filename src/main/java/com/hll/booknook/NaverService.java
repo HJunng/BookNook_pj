@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class KakaoService {
+public class NaverService {
     public String getAccessToken (String authorize_code) {
         String access_Token = "";
         String refresh_Token = "";
-        String reqURL = "https://kauth.kakao.com/oauth/token";
+        String reqURL = "https://nid.naver.com/oauth2.0/token";
 
         try {
             URL url = new URL(reqURL);
@@ -30,8 +30,9 @@ public class KakaoService {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=7e332000cb0945818768675d2c855eca");  //본인이 발급받은 key
-            sb.append("&redirect_uri=http://localhost:8080/login/auth");     // 본인이 설정해 놓은 경로
+            sb.append("&client_id=hR2ofH0dFkk0mAFZokKE");  //본인이 발급받은 key
+            sb.append("&client_secret=bEgh7GIHRP");
+            sb.append("&redirect_uri=http://localhost:8080/login/naver_auth");     // 본인이 설정해 놓은 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();
@@ -53,6 +54,7 @@ public class KakaoService {
             JsonElement element = parser.parse(result);
 
             access_Token = element.getAsJsonObject().get("access_token").getAsString();
+            System.out.println(access_Token);
             refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
 
             br.close();
@@ -68,7 +70,7 @@ public class KakaoService {
 
         //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
         HashMap<String, Object> userInfo = new HashMap<>();
-        String reqURL = "https://kapi.kakao.com/v2/user/me";
+        String reqURL = "https://openapi.naver.com/v1/nid/me";
         try {
             URL url = new URL(reqURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -77,8 +79,8 @@ public class KakaoService {
             //    요청에 필요한 Header에 포함될 내용
             conn.setRequestProperty("Authorization", "Bearer " + access_Token);
 
+            //응답 코드
             int responseCode = conn.getResponseCode();
-//            System.out.println("responseCode : " + responseCode);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -92,13 +94,16 @@ public class KakaoService {
             JsonParser parser = new JsonParser();
             JsonElement element = parser.parse(result);
 
-            JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
-            JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+            JsonObject response = element.getAsJsonObject().get("response").getAsJsonObject();
+//            JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
-            String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-            String email = kakao_account.getAsJsonObject().get("email").getAsString();
+            String name = response.getAsJsonObject().get("name").getAsString();
+            String email = response.getAsJsonObject().get("email").getAsString();
 
-            userInfo.put("nickname", nickname);
+            System.out.println(name);
+            System.out.println(email);
+
+            userInfo.put("name", name);
             userInfo.put("email", email);
 
         } catch (IOException e) {
