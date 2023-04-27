@@ -106,3 +106,26 @@ end_read.setAttribute("max", today);
 start_read.oninput = function () {
   end_read.setAttribute("min", start_read.value);
 };
+
+/*  */
+const urlParams = new URL(location.href).searchParams;
+const bookSearch = urlParams.get("bookSearch");
+
+function inputIsbn_1() {
+  document.getElementById("isbn").setAttribute("value", bookSearch);
+  document.getElementById("condition").setAttribute("value", 0); //읽은 책
+
+  document.getElementById("read_form").submit();
+}
+function inputIsbn_2() {
+  document.getElementById("isbn2").setAttribute("value", bookSearch);
+  document.getElementById("condition2").setAttribute("value", 1); //읽고있는 책
+
+  document.getElementById("reading_form").submit();
+}
+function inputIsbn_3() {
+  document.getElementById("isbn3").setAttribute("value", bookSearch);
+  document.getElementById("condition3").setAttribute("value", 2); //읽고싶은 책
+
+  document.getElementById("willRead_form").submit();
+}
