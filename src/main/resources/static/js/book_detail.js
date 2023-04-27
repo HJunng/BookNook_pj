@@ -1,6 +1,6 @@
 /* searchList.html에서 클릭한 책의 정보(isbn) 받기 */
 const urlParams = new URL(location.href).searchParams;
-const bookSearch = urlParams.get("bookSearch");
+const bookSearch = urlParams.get("Isbn");
 
 $.ajax({
   method: "GET",
@@ -29,29 +29,30 @@ $.ajax({
   book_publisher.innerText = msg.documents[0].publisher;
   book_summary.innerText = msg.documents[0].contents;
 
-  /* 버튼 누르면 폼에 isbn 넘어가게 하는 거 */
-  const urlParams = new URL(location.href).searchParams;
-  const bookSearch = urlParams.get("bookSearch");
-
-  function inputIsbn_1() {
-    document.getElementById("isbn").setAttribute("value", bookSearch);
-    document.getElementById("condition").setAttribute("value", 0); //읽은 책
-
-    document.getElementById("read_form").submit();
-  }
-  function inputIsbn_2() {
-    document.getElementById("isbn2").setAttribute("value", bookSearch);
-    document.getElementById("condition2").setAttribute("value", 1); //읽고있는 책
-
-    document.getElementById("reading_form").submit();
-  }
-  function inputIsbn_3() {
-    document.getElementById("isbn3").setAttribute("value", bookSearch);
-    document.getElementById("condition3").setAttribute("value", 2); //읽고싶은 책
-
-    document.getElementById("willRead_form").submit();
-  }
 });
+ let authors = document.getElementById("book_authors").innerText;
+ console.log(authors);
+ function inputIsbn_1() {
+   document.getElementById("isbn1").setAttribute("value", bookSearch);
+   document.getElementById("condition1").setAttribute("value", 0); //읽은 책
+   document.getElementById("author1").setAttribute("value",authors);
+
+   document.getElementById("read_form").submit();
+ }
+ function inputIsbn_2() {
+   document.getElementById("isbn2").setAttribute("value", bookSearch);
+   document.getElementById("condition2").setAttribute("value", 1); //읽고있는 책
+   document.getElementById("author2").setAttribute("value",authors);
+
+   document.getElementById("reading_form").submit();
+ }
+ function inputIsbn_3() {
+   document.getElementById("isbn3").setAttribute("value", bookSearch);
+   document.getElementById("condition3").setAttribute("value", 2); //읽고싶은 책
+   document.getElementById("author3").setAttribute("value",authors);
+   console.log(authors);
+   document.getElementById("willRead_form").submit();
+ }
 
 /* 읽은 상태 선택에 따른 팝업창 띄우기 */
 let popup_read = document.getElementById("popup_read");

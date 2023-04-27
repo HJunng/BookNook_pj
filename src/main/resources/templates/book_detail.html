@@ -97,6 +97,11 @@
                 <div>
                     <strong>✅ 읽은 책</strong>
                 </div>
+                <div>
+                    <input id="isbn1" name="isbn" type="hidden">
+                    <input id="condition1" name="con" type="hidden">
+                    <input id="author1" name="author" type="hidden">
+                </div>
                 <div class="popup_contents">
                     <div class="period" id="period_read">
                         <label for="period_read">독서 기간</label>
@@ -121,7 +126,7 @@
                     </div>
                 </div>
                 <div class="btn_popup" id="btn_read">
-                    <input type="submit" value="저장">
+                    <input type="button" onclick="inputIsbn_1()" value="저장">
                     <input type="button" id="close_read" value="닫기">
                 </div>
             </form>
@@ -132,6 +137,11 @@
             <form id="reading_form" action="/books/input" method="post">
                 <div>
                     <strong>📖 읽고 있는 책</strong>
+                </div>
+                <div>
+                    <input id="isbn2" name="isbn" type="hidden">
+                    <input id="condition2" name="con" type="hidden">
+                    <input id="author2" name="author" type="hidden">
                 </div>
                 <div class="popup_contents">
                     <div class="period" id="period_reading">
@@ -161,7 +171,7 @@
                     </div>
                 </div>
                 <div class="btn_popup">
-                    <input type="submit" value="저장">
+                    <input type="button" onclick="inputIsbn_2()" value="저장">
                     <input type="button" id="close_reading" value="닫기">
                 </div>
             </form>
@@ -173,8 +183,9 @@
                     <strong>💗 읽고 싶은 책</strong>
                 </div>
                 <div>
-                    <input id="isbn3" name="isbn" type="hidden" value="54321">
+                    <input id="isbn3" name="isbn" type="hidden">
                     <input id="condition3" name="con" type="hidden">
+                    <input id="author3" name="author" type="hidden">
                 </div>
                 <div class="popup_contents">
                     <label for="expectation">기대평</label>
