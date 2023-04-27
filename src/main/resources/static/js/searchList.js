@@ -59,7 +59,7 @@ $.ajax({
     for (let i = 0; i < a_tag.length; i++) {
       a_tag[i].onclick = function (event) {
         event.target.href =
-          "book_detail.html?bookSearch=" + event.target.dataset.isbn;
+          "bookDetail?Isbn=" + event.target.dataset.isbn;
       };
     }
   }
