@@ -30,6 +30,7 @@ public class LibraryController {
     }
     @GetMapping("/bookDetail")
     public String book_detail(){ return "book_detail";}
+
     @GetMapping("/books/ranking")//책 순위: 임시 페이지 원래는 redirect:/html/index.html에 나와야하는 기능
     public String rank_index(Model model) {
         List<Library> rankList = this.libraryService.getList();

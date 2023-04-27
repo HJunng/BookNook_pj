@@ -1,4 +1,4 @@
- //searchList.html에서 클릭한 책의 정보(isbn) 받기
+/* searchList.html에서 클릭한 책의 정보(isbn) 받기 */
 const urlParams = new URL(location.href).searchParams;
 const bookSearch = urlParams.get("Isbn");
 
