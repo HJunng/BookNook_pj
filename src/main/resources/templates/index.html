@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -44,114 +44,108 @@
                 <p>이달의 독서왕은 사용자 중 책을 가장 많이 읽은 top 3 입니다</p>
                 <div id="ranking_whole">
                     <div id="top3">
-                        <div id="rank_2" class="top3">
+                        <div th:each="topranklist, loop: ${toprankList}" id="rank_2" class="top3">
                             <img src="../images/user.png" alt="2위 프로필 사진">
-                            <p>이다희</p>
+                            <p th:text="${topranklist.nick}"></p>
                             <div class="NumberofBook"><span>📚</span>
-                                <p>5권</p>
+                                <p th:text="${topranklist.cnt}"></p>
                             </div>
                         </div>
-                        <div id="rank_1" class="top3">
-                            <img src="../images/user.png" alt="1위 프로필 사진">
-                            <p>이다희</p>
-                            <div class="NumberofBook"><span>📚</span>
-                                <p>5권</p>
-                            </div>
-                        </div>
-                        <div id="rank_3" class="top3">
-                            <img src="../images/user.png" alt="3위 프로필 사진">
-                            <p>이다희</p>
-                            <div class="NumberofBook"><span>📚</span>
-                                <p>5권</p>
-                            </div>
-                        </div>
+<!--                        <div id="rank_1" class="top3">-->
+<!--                            <img src="../images/user.png" alt="1위 프로필 사진">-->
+<!--                            <p>이다희</p>-->
+<!--                            <div class="NumberofBook"><span>📚</span>-->
+<!--                                <p>5권</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div id="rank_3" class="top3">-->
+<!--                            <img src="../images/user.png" alt="3위 프로필 사진">-->
+<!--                            <p>이다희</p>-->
+<!--                            <div class="NumberofBook"><span>📚</span>-->
+<!--                                <p>5권</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                     <div id="top4to10">
                         <ol>
-                            <li>
-                                <div class="idx">
-                                    <p>4</p>
-                                </div>
+                            <li th:each="ranklist, loop: ${rankList}">
+                                <div th:text="${loop.count+3}" class="idx"></div>
                                 <div class="userimg"><img src="../images/user.png" alt="4위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
+                                <div th:text="${ranklist.nick}" class="name"></div>
+                                <div th:text="${ranklist.cnt}" class="numofbook"></div>
                             </li>
-                            <li>
-                                <div class="idx">
-                                    <p>5</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="5위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="idx">
-                                    <p>6</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="6위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="idx">
-                                    <p>7</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="7위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="idx">
-                                    <p>8</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="8위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="idx">
-                                    <p>9</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="9위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="idx">
-                                    <p>10</p>
-                                </div>
-                                <div class="userimg"><img src="../images/user.png" alt="10위 프로필 사진"></div>
-                                <div class="name">
-                                    <p>이름</p>
-                                </div>
-                                <div class="numofbook">
-                                    <p>3권</p>
-                                </div>
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>5</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="5위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>6</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="6위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>7</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="7위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>8</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="8위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>9</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="9위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="idx">-->
+<!--                                    <p>10</p>-->
+<!--                                </div>-->
+<!--                                <div class="userimg"><img src="../images/user.png" alt="10위 프로필 사진"></div>-->
+<!--                                <div class="name">-->
+<!--                                    <p>이름</p>-->
+<!--                                </div>-->
+<!--                                <div class="numofbook">-->
+<!--                                    <p>3권</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
                         </ol>
                     </div>
                 </div>

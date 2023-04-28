@@ -15,8 +15,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="ranklist, loop: ${rankList}">
+        <tr th:each="topranklist, loop: ${toprankList}">
             <td th:text="${loop.count}"></td>
+            <td th:text="${topranklist.nick}"></td>
+            <td th:text="${topranklist.cnt}"></td>
+        </tr>
+        <tr th:each="ranklist, loop: ${rankList}">
+            <td th:text="${loop.count + 3}"></td>
             <td th:text="${ranklist.nick}"></td>
             <td th:text="${ranklist.cnt}"></td>
         </tr>
