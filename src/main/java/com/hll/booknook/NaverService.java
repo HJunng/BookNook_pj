@@ -54,7 +54,7 @@ public class NaverService {
             JsonElement element = parser.parse(result);
 
             access_Token = element.getAsJsonObject().get("access_token").getAsString();
-            System.out.println(access_Token);
+//            System.out.println(access_Token);
             refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
 
             br.close();
@@ -99,9 +99,6 @@ public class NaverService {
 
             String name = response.getAsJsonObject().get("name").getAsString();
             String email = response.getAsJsonObject().get("email").getAsString();
-
-            System.out.println(name);
-            System.out.println(email);
 
             userInfo.put("name", name);
             userInfo.put("email", email);

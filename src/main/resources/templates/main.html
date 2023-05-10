@@ -10,6 +10,7 @@
   <div th:style="${name != null?'display:none':'display:block'}"><a href="https://kauth.kakao.com/oauth/authorize?client_id=7e332000cb0945818768675d2c855eca&redirect_uri=http://localhost:8080/login/auth&response_type=code">카카오</a></div>
   <div th:style="${name != null?'display:none':'display:block'}"><a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=hR2ofH0dFkk0mAFZokKE&state=booknook&redirect_uri=http://localhost:8080/login/naver_auth">네이버</a></div>
   <h1><span th:if="${name != null}" th:text="${name}+'님 환영합니다.'"></span></h1>
-  <div th:style="${name == null?'display:none':'display:block'}"><a href="https://kauth.kakao.com/oauth/logout?client_id=7e332000cb0945818768675d2c855eca&logout_redirect_uri=http://localhost:8080/logout">로그아웃</a></div>
+<!--  <div th:style="${name == null?'display:none':'display:block'}"><a href="https://kauth.kakao.com/oauth/logout?client_id=7e332000cb0945818768675d2c855eca&logout_redirect_uri=http://localhost:8080/logout">로그아웃</a></div>-->
+  <div th:style="${name == null?'display:none':'display:block'}"><a href="http://localhost:8080/logout">로그아웃</a></div>
 </body>
 </html>
