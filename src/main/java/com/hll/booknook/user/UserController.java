@@ -52,7 +52,7 @@ public class UserController {
         }
         session.setAttribute("access_token", access_Token);
         session.setAttribute("name",String.valueOf(userInfo.get("name")));
-        session.setMaxInactiveInterval(20*60);
+        session.setMaxInactiveInterval(10*60);
         return "redirect:/login";
     }
 
@@ -80,7 +80,7 @@ public class UserController {
         //로그인 세션 생성하기
         session.setAttribute("access_token", access_Token);
         session.setAttribute("name", String.valueOf(userInfo.get("nickname")));
-        session.setMaxInactiveInterval(20*60);
+        session.setMaxInactiveInterval(10*60);
         return "redirect:/login";
     }
 
