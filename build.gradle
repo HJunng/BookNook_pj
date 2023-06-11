@@ -32,6 +32,23 @@ dependencies {
     //jpa+db
     implementation 'mysql:mysql-connector-java'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //JSON
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    //WebSocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    /*//sockjs
+    implementation 'org.webjars:sockjs-client:1.5.1'
+    //stomp
+    implementation 'org.webjars:stomp-websocket:2.3.4'*/
+
+    //spring-websocket
+    implementation 'org.springframework:spring-websocket'
+    //json라이브러리 추가
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.0'
+
 }
 
 tasks.named('test') {

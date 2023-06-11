@@ -52,10 +52,19 @@ public class LibraryController {
             if (i<4){
                 toprk.add(data);
             }
+
             else{
                 rk.add(data);
             }
             //몇개 가져올까
+
+            else if (i<11){
+                rk.add(data);
+            }
+            else{
+                break;
+            }
+
             i += 1;
         }
         model.addAttribute("rankList", rk);
@@ -68,6 +77,7 @@ public class LibraryController {
     }
     @GetMapping("/bookDetail")
     public String book_detail(){ return "book_detail";}
+
 
     @GetMapping("/books/ranking")//책 순위: 임시 페이지 원래는 redirect:/html/index.html에 나와야하는 기능
     public String rank_index(Model model) {

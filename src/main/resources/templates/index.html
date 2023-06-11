@@ -52,6 +52,7 @@
                             </div>
                         </div>
                     </div>
+
 <!--                        <div id="rank_1" class="top3">-->
 <!--                            <img src="../images/user.png" alt="1위 프로필 사진">-->
 <!--                            <p>이다희</p>-->
@@ -66,6 +67,7 @@
 <!--                                <p>5권</p>-->
 <!--                            </div>-->
 <!--                        </div>-->
+
                     <div id="top4to10">
                         <ol>
                             <li th:each="ranklist, loop: ${rankList}">
@@ -74,6 +76,7 @@
                                 <div th:text="${ranklist.nick}" class="name"></div>
                                 <div th:text="${ranklist.cnt}" class="numofbook"></div>
                             </li>
+
 <!--                            <li>-->
 <!--                                <div class="idx">-->
 <!--                                    <p>5</p>-->
@@ -146,6 +149,7 @@
 <!--                                    <p>3권</p>-->
 <!--                                </div>-->
 <!--                            </li>-->
+
                         </ol>
                     </div>
                 </div>
